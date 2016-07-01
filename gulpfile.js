@@ -8,7 +8,7 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 
 gulp.task('default', function() {
-    return gulp.src('./components/src/**/*.jsx')
+    return gulp.src('./components/src/**/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(sourcemaps.write('.'))
@@ -31,7 +31,7 @@ gulp.task('bundle', function() {
         .pipe(gulp.dest('./components/dist'));
 });
 
-gulp.watch('./components/src/**/*.jsx', ['default'])
+gulp.watch('./components/src/**/*.js', ['default'])
     .on('change', function(event) {
         gutil.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
